@@ -35,6 +35,21 @@ Response:
 - The Recommender will use a formula multiplying each measurement of the four statistics (genre, mood, energy, acousticness) by the weights of these features. The weights of genre and mood will be much higher than the weights of energy and acousticness because they are the central factors that we are judging the song by. 
 - Similar to real life, we will chooes songs to recommend by first calculating a score for the song using the formula mentioned above. Then, we will use a ranking rule to determine among the scored songs which one to recommend to the user first. 
 
+Mermaid.js diagram: 
+flowchart TD
+    A[Input: User Preferences<br/>mood, genre, energy target, tempo target, weights] --> B[Load songs dataset]
+    B --> C{More songs to evaluate?}
+    C -->|Yes| D[Compute feature match values]
+    D --> E[Calculate weighted score using configured weights]
+    E --> F[Store song with its score]
+    F --> C
+    C -->|No| G[Sort songs by score descending]
+    G --> H[Select top K songs]
+    H --> I[Output ranked recommendations with title, artist, and score]
+
+Algorithm Recipe: 
+- The algorithm will first collect the user's song preferences. Then, the algorithm will go through the song dataset and exclude any irrelevant songs. For each song, we will compute a score for each feature that measures how much they match the user's preferences. Then, we will calculate a final weighted total score using the chosen point-weighting strategy. 
+
 ## Getting Started
 
 ### Setup
