@@ -29,7 +29,11 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
----
+Response: 
+- My system will use the features genre, mood, energy, and acousticness. 
+- My UserProfile object will store four fields, including favorite genre, favorite mood, target energy, and the user's acoustic preference. 
+- The Recommender will use a formula multiplying each measurement of the four statistics (genre, mood, energy, acousticness) by the weights of these features. The weights of genre and mood will be much higher than the weights of energy and acousticness because they are the central factors that we are judging the song by. 
+- Similar to real life, we will chooes songs to recommend by first calculating a score for the song using the formula mentioned above. Then, we will use a ranking rule to determine among the scored songs which one to recommend to the user first. 
 
 ## Getting Started
 
