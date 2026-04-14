@@ -47,6 +47,10 @@ flowchart TD
     G --> H[Select top K songs]
     H --> I[Output ranked recommendations with title, artist, and score]
 
+  Screenshot of the recommender output:
+
+  ![Recommender output screenshot](Screenshot%202026-04-14%20042212.png)
+
 Algorithm Recipe: 
 - The algorithm will first collect the user's song preferences. Then, the algorithm will go through the song dataset and exclude any irrelevant songs. For each song, we will compute a score for each feature that measures how much they match the user's preferences. Then, we will calculate a final weighted total score using the chosen point-weighting strategy. 
 
