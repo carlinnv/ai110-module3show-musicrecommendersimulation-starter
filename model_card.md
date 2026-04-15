@@ -70,6 +70,8 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+One main weakness is that the scoring logic over-prioritizes exact genre matches, which can create a "filter bubble". Since genre currently carries the strongest weight, songs in similar styles such as indie pop vs pop may get ranked too low even when other features match well. This reduces discovery potential and can make recommendations feel repetitive over time. It may also disadvantage users with niche or mixed tastes that do not match exactly to existing genre labels.
+
 ---
 
 ## 7. Evaluation  
@@ -83,7 +85,7 @@ Prompts:
 - What surprised you  
 - Any simple tests or comparisons you ran  
 
-No need for numeric metrics unless you created some.
+I tested multiple profiles including High-Energy Pop, Chill Lofi, Deep Intense Rock, Empty Profile, Out-of-Range Numeric Values, Conflicting Vibes, and Unknown Labels and Noise. I checked whether the top songs matched the intended vibe and whether the explanations given showed the strongest matching features. The result that surprised me the most was how strongly the exact genre matching dominated the ranking, even when several numeric features pointed to other songs. Another surprise was that "edge case" profiles with unknown labels or unusual values still produced plausible recommendations, but mostly by falling back to whichever features could still score.
 
 ---
 

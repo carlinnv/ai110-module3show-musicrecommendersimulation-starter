@@ -70,7 +70,7 @@ def main() -> None:
         },
     }
 
-    active_profile = "Unknown Labels and Noise"  # Change this to test different profiles quickly.
+    active_profile = "Chill Lofi"  # Change this to test different profiles quickly.
     user_prefs = user_profiles[active_profile]
 
     recommendations = recommend_songs(user_prefs, songs, k=5)

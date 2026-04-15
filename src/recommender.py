@@ -96,10 +96,10 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
             score += points
             reasons.append(f"{feature_name} close match (+{points:.1f})")
 
-    add_exact_match("genre", "genre", "genre", 2.0)
+    add_exact_match("genre", "genre", "genre", 4.0)
     add_exact_match("mood", "mood", "mood", 2.0)
     add_numeric_match("energy", "energy", "energy", 3.0, 0.5)
-    add_numeric_match("acousticness", "acousticness", "acousticness", 1.5, 0.7)
+    add_numeric_match("acousticness", "acousticness", "acousticness", 0.75, 0.7)
     add_numeric_match("tempo", "tempo_bpm", "tempo_bpm", 1.5, 40.0)
     add_numeric_match("valence", "valence", "valence", 1.0, 0.5)
     add_numeric_match("danceability", "danceability", "danceability", 1.0, 0.5)
