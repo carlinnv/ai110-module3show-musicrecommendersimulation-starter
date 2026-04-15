@@ -2,7 +2,7 @@
 
 ## 1. Model Name  
 
-**VibeShift Recommender**
+**Tune Recommender**
 
 ---
 
