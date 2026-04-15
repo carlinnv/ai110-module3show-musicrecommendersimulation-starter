@@ -2,112 +2,52 @@
 
 ## 1. Model Name  
 
-Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+**VibeShift Recommender**
 
 ---
 
 ## 2. Intended Use  
 
-Describe what your recommender is designed to do and who it is for. 
-
-Prompts:  
-
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
+This recommender suggests songs from a small catalog by using user preferences like genre, mood, and audio traits. It assumes users can describe what they want in simple labels. 
 
 ---
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+Each song gets points when it matches the user profile, and the exact genre and mood matches add fixed points. Features like energy, acousticness, tempo, valence, and danceability add points based on closeness. The database of songs are then sorted by total score and the top results are returned. I changed the weights to test bias: genre was doubled and acousticness was cut in half.
 
 ---
 
 ## 4. Data  
 
-Describe the dataset the model uses.  
-
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
+The dataset has 18 songs and includes genres like pop, lofi, rock, ambient, jazz, synthwave, and more. Moods include happy, chill, intense, focused, and relaxed. I used AI to generate 10 songs in addition to the original song database. Unfortunately, the catalog is still small, so many music styles and cultures are missing.
 
 ---
 
 ## 5. Strengths  
 
-Where does your system seem to work well  
-
-Prompts:  
-
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
+It works well when a user has clear preferences. High-Energy Pop, Chill Lofi, and Deep Intense Rock gave believable top songs. The scoring reacts clearly when energy or genre changes. The reason strings help explain why a song was ranked high.
 
 ---
 
 ## 6. Limitations and Bias 
 
-Where the system struggles or behaves unfairly. 
-
-Prompts:  
-
-- Features it does not consider  
-- Genres or moods that are underrepresented  
-- Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
-
-One main weakness is that the scoring logic over-prioritizes exact genre matches, which can create a "filter bubble". Since genre currently carries the strongest weight, songs in similar styles such as indie pop vs pop may get ranked too low even when other features match well. This reduces discovery potential and can make recommendations feel repetitive over time. It may also disadvantage users with niche or mixed tastes that do not match exactly to existing genre labels.
+The biggest weakness is filter bubble behavior. Exact genre matching has a strong weight, so similar styles might be pushed down, which can make results repetitive and reduce discovery. Users with mixed or niche taste may get weaker matches. Furthermore, my model also ignores context like lyrics, language, and listening history.
 
 ---
 
 ## 7. Evaluation  
 
-How you checked whether the recommender behaved as expected. 
-
-Prompts:  
-
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
-
-I tested multiple profiles including High-Energy Pop, Chill Lofi, Deep Intense Rock, Empty Profile, Out-of-Range Numeric Values, Conflicting Vibes, and Unknown Labels and Noise. I checked whether the top songs matched the intended vibe and whether the explanations given showed the strongest matching features. The result that surprised me the most was how strongly the exact genre matching dominated the ranking, even when several numeric features pointed to other songs. Another surprise was that "edge case" profiles with unknown labels or unusual values still produced plausible recommendations, but mostly by falling back to whichever features could still score.
+I tested High-Energy Pop, Chill Lofi, Deep Intense Rock, Empty Profile, Out-of-Range Numeric Values, Conflicting Vibes, and Unknown Labels and Noise. I checked if top songs matched the intended vibe, and also checked whether explanation text matched the strongest scoring features. The surprising part was how much exact genre matching dominated ranking. Another surprise was that weird input values still returned usable results by falling back to other features.
 
 ---
 
 ## 8. Future Work  
 
-Ideas for how you would improve the model next.  
-
-Prompts:  
-
-- Additional features or preferences  
-- Better ways to explain recommendations  
-- Improving diversity among the top results  
-- Handling more complex user tastes  
+I want to add a diversity step so top results are less repetitive. I want softer genre similarity, not only exact label matches. I also want negative preferences, like "less intense" or "not acoustic." Better explanations could show a feature-by-feature score breakdown. Long term, I would add more songs and richer user profile options.
 
 ---
 
 ## 9. Personal Reflection  
 
-A few sentences about your experience.  
-
-Prompts:  
-
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
+My biggest learning moment was finding out that the edge cases still gave good outputs. This showed me that it is indeed important to check edge cases just incase they do not give plausible results. AI tools helped me by providing feedback on my proposed outlines. I double checked them at most steps, especially during implementation. I was also surprised that such a simple point-based algorithm could still feel like a real recommender. Even without deep AI, matching a few meaningful features made the results feel personal and believable. If I extend this project, the first thing I would try is a diversity re-ranking step so the top results are less repetitive.
