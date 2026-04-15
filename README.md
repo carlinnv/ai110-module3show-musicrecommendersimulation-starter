@@ -97,6 +97,29 @@ Use this section to document the experiments you ran. For example:
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
 
+## Test Case Screenshots
+
+### High-Energy Pop
+![High-Energy Pop](testcase_pics/HighEnergyPop.png)
+
+### Chill Lofi
+![Chill Lofi](testcase_pics/Chill%20Lofi.png)
+
+### Deep Intense Rock
+![Deep Intense Rock](testcase_pics/DeepIntenseRock.png)
+
+### Empty Profile
+![Empty Profile](testcase_pics/EmptyProfile.png)
+
+### Out-of-Range Numeric Values
+![Out-of-Range Numeric Values](testcase_pics/OutOfRange.png)
+
+### Conflicting Vibes
+![Conflicting Vibes](testcase_pics/ConflictingVibes.png)
+
+### Unknown Labels and Noise
+![Unknown Labels and Noise](testcase_pics/UnknownLabelsAndNoise.png)
+
 ---
 
 ## Limitations and Risks
